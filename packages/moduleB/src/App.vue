@@ -1,41 +1,28 @@
 <template>
-  <span id="app1">
-    账号中台正在工作
-    <div>
-      账号中台 年龄
-    </div>
-    <div>
-      点击按钮 总部数据+1
-      <button @click="addCount">点击</button>
-    </div>
-    <div class="color">
-      app1样式 黄色
-    </div>
-    <router-view></router-view>
-  </span>
+  <div id="app">
+    <img alt="Vue logo" src="./assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import HelloWorld from './components/HelloWorld.vue'
+
 export default {
-  methods: {
-    addCount(){
-      console.log('增加cout数量---', window.vm)
-      window.vm.$emit('addName', 'ls')
-    },
+  name: 'App',
+  components: {
+    HelloWorld
   }
 }
-
 </script>
+
 <style>
-#app1 {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-.color{
-  color: yellow;
+  margin-top: 60px;
 }
 </style>

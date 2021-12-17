@@ -1,35 +1,8 @@
-import './set-public-path'
-import Vue from 'vue';
-import App from './App.vue';
-import router from './router';
-import singleSpaVue from 'single-spa-vue';
-import {store} from './store'
-const VUE_APP_NAME = process.env.VUE_APP_NAME
+import Vue from 'vue'
+import App from './App.vue'
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = false
 
-
-// 主应用注册成功后会在window下挂载singleSpaNavigate方法
-// 为了独立运行，避免子项目页面为空，
-// 判断如果不在微前端环境下进行独立渲染html
-if (!window.singleSpaNavigate) {
-  new Vue({
-    render: h => h(App),
-  }).$mount('#app')
-}
-
-
-const vueLifecycles = singleSpaVue({
-  Vue,
-  appOptions: {
-    // el: '#wrap', // 没有挂载点默认挂载到body下
-    render: (h) => h(App),
-    router
-  },
-});
-
-export const bootstrap = [
-  vueLifecycles.bootstrap
-];
-export const mount = vueLifecycles.mount;
-export const unmount = vueLifecycles.unmount;
+new Vue({
+  render: h => h(App),
+}).$mount('#app')
