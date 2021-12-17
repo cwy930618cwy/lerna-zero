@@ -1,2 +1,1 @@
-# lerna-zero
-simple-lerna
+lerna-zero
